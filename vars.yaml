@@ -18,4 +18,6 @@
     - name: Printing the CLI URL
       ansible.builtin.debug: 
             msg: "{{ CLI_URL }}"
+      vars:
+          CLI_URL: task-cli.google.com
             

@@ -14,4 +14,8 @@
     - name: Printing the URL with quotes
       ansible.builtin.debug: 
             msg: "{{ URL }}"
+
+    - name: Printing the CLI URL
+      ansible.builtin.debug: 
+            msg: "{{ CLI_URL }}"
             

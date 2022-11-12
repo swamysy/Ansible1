@@ -1,0 +1,12 @@
+- name: Demo on facts
+  hosts: all
+  tasks:
+    - name: Print OS Distro
+      debug:
+        msg: OS Distro is {{ansible_distribution}}
+
+# "ansible_default_ipv4": {
+#             "address": "172.31.2.75",
+#             "alias": "eth0",
+
+# }

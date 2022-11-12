@@ -9,6 +9,8 @@
       debug:
         msg: Mac Address is {{ansible_default_ipv4_macaddress}}
 
+        
+
 # "ansible_default_ipv4": {
 #             "address": "172.31.2.75",
 #             "alias": "eth0",

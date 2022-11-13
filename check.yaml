@@ -1,0 +1,10 @@
+- name: Check tomcat is running or not
+  hosts: all
+  tasks: 
+    - name: Check Tomcat is up or not
+      ansible.builtin.shell: ps -ef | grep java | grep -v grep
+      register: OUT
+
+    - name: Starting tomcat
+      ansible.builtin.debug:
+        msg: Tomcat is starting #"{{OUT.stdout}}"

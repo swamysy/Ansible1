@@ -18,3 +18,29 @@
     name: mongod
     state: started
     enabled: yes
+
+- name: Download and extracting mongodb
+  ansible.builtin.include.role:
+    name: common
+    tasks_from: download
+
+# - name: Load Catalogue Schema
+#   community.mongodb.mongodb_shell:
+#     file: "/tmp/mongodb-main/catalogue.js"
+#     idempotent: yes
+
+# - name: Load Usres Schema
+#   community.mongodb.mongodb_shell:
+#     file: "/tmp/mongodb-main/users.js"
+#     idempotent: yes
+
+- name: Load Schemas
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/{{item}}.js"
+    idempotent: yes
+  loop:
+    - catalogue
+    - users
+
+
+    

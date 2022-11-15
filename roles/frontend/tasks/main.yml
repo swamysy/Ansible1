@@ -3,11 +3,16 @@
     name: nginx
     state: present
 
-- name: Download and extract frontend
-  ansible.builtin.unarchive:
-    src: curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip
-    dest: /tmp
-    remote_src: yes # if the cource not local then you need to mention remote source as yes.
+# - name: Download and extract frontend
+#   ansible.builtin.unarchive:
+#     src: curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip
+#     dest: /tmp
+#     remote_src: yes # if the cource not local then you need to mention remote source as yes.
+
+- name: Download and extracting frontend
+  ansible.builtin.include.role:
+    name: common
+    tasks_from: download
 
 - name: Cleanup of old web content
   ansible.builtin.file:

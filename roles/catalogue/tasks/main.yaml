@@ -31,8 +31,20 @@
     remote_src: yes
   become_user: roboshop
 
-- name: Installing "coffee-script" node.js package.
+- name: Installing node.js package
   community.general.npm:
-    name: coffee-script
-    path: /app/location
+    path: /home/roboshop/{{COMPONENT}}
 
+- name: Copying the systemd file
+  ansible.builtin.copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Restarting Service
+  ansible.builtin.systemd:
+    state: restarted
+    daemon-reload: yes
+    name: "{{COMPONENT}}"
+
+- name: Set the host name
+  ansible.builtin.shell: set-hostname {{COMPONENT}}

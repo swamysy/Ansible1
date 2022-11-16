@@ -15,7 +15,7 @@
     component: roboshop project application user
 
 - name: Download and extracting catalogue
-  ansible.builtin.include.role:
+  ansible.builtin.include_role:
     name: common
     tasks_from: download
 

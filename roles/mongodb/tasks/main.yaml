@@ -42,5 +42,10 @@
     - catalogue
     - users
 
+- name: Doing set-hostname
+  ansible.builtin.include.role:
+    name: common
+    tasks_from: set-hostname
+
 
     
